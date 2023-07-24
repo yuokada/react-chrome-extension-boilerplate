@@ -1,0 +1,21 @@
+---
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      # time: "04:00"
+    allow:
+      - dependency-name: "aws*"
+        dependency-type: "direct"
+    # open-pull-requests-limit: 1
+    versioning-strategy: increase
+    ignore:
+      # ignore all patch updates
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
