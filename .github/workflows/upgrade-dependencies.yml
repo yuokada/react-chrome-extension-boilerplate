@@ -25,13 +25,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-          cache: yarn
+          cache: npm
       - name: Upgrade JS dependencies
         # ADD YOUR CUSTOM DEPENDENCY UPGRADE COMMANDS BELOW
         run: |
-          rm -f yarn.lock
           npx npm update
-          npx --yes yarn-upgrade-all
 
       - name: Detect changes
         id: changes
